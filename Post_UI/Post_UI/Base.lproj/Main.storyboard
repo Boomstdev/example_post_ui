@@ -30,7 +30,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtD-ey-5BK">
                                                     <rect key="frame" x="5" y="5" width="404" height="587"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWm-6D-UcU">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWm-6D-UcU">
                                                             <rect key="frame" x="10" y="10" width="81" height="81"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="RWm-6D-UcU" secondAttribute="height" multiplier="1:1" id="ZAJ-jr-xrM"/>
@@ -54,7 +54,7 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLW-UK-K74">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tLW-UK-K74">
                                                             <rect key="frame" x="0.0" y="132" width="404" height="404"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="tLW-UK-K74" secondAttribute="height" multiplier="1:1" id="zqa-tO-o0e"/>

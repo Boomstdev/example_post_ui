@@ -21,18 +21,14 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return listPost.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let item = listPost[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellPost", for: indexPath) as! CellPost
         cell.delegate = self
-        cell.config(postItem: PostModel(dict: [
-            "profileName":"Sarayut Thong-un",
-            "date":"15/05/2022",
-            "caption":"aaaaaaaaaaaaa",
-            "postImage":"https://c8.alamy.com/zooms/9/ece0745d430e41f4a45e947817e9285d/w8tgbd.jpg",
-            "profileImage":"https://c8.alamy.com/zooms/9/ece0745d430e41f4a45e947817e9285d/w8tgbd.jpg"]))
+        cell.config(postItem: item)
         return cell
     }
 }
