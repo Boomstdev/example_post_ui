@@ -7,13 +7,20 @@
 
 import UIKit
 
+protocol CellPostDelegate{
+    func btnPress(title:String)
+}
+
 class CellPost: UITableViewCell {
+    var delegate:CellPostDelegate?
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var dateTime: UILabel!
     @IBOutlet weak var caption: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var captionImage: UIImageView!
+    
+    var postItem: PostModel!
     
     let targetSize = CGSize(width: 50, height: 50)
     let screenSize = UIScreen.main.bounds
@@ -26,16 +33,25 @@ class CellPost: UITableViewCell {
         let screenHeight = screenSize.height
         profileImage.frame.size = CGSize(width: screenWidth*0.2, height: screenWidth * 0.2)
         profileImage.connerCircle()
-        self.reloadInputViews()
     }
     @IBAction func btnLike(_ sender: Any) {
-        print("Pressed Like")
+        
+        if let delegate = delegate {
+            delegate.btnPress(title: "Pressed Like")
+//            print("Pressed Like")
+        }
     }
     @IBAction func btnComment(_ sender: Any) {
-        print("Pressed Comment")
+        
+        if let delegate = delegate {
+            delegate.btnPress(title: "Pressed Comment")
+        }
     }
     @IBAction func btnShare(_ sender: Any) {
-        print("Pressed Share")
+        
+        if let delegate = delegate {
+            delegate.btnPress(title: "Pressed Share")
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,7 +59,18 @@ class CellPost: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func config(postItem: PostModel){
+        name.text = postItem.profileName
+        dateTime.text = postItem.date
+        caption.text = postItem.caption
+        if let image = postItem.profileImage{
+            profileImage.load(url: image)
+        }
+        if let image = postItem.postImage{
+            captionImage.load(url: image)
+        }
+    }
 }
 
 extension UIImageView {

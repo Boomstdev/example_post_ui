@@ -26,12 +26,24 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellPost", for: indexPath) as! CellPost
-        cell.name.text = "Sarayut Thong-un"
-        cell.profileImage.load(url: "https://c8.alamy.com/zooms/9/ece0745d430e41f4a45e947817e9285d/w8tgbd.jpg")
-        cell.caption.text = "asdasdasdasdasdasdas"
-//        tableView.reloadData()
+        cell.delegate = self
+        cell.config(postItem: PostModel(dict: [
+            "profileName":"Sarayut Thong-un",
+            "date":"15/05/2022",
+            "caption":"aaaaaaaaaaaaa",
+            "postImage":"https://c8.alamy.com/zooms/9/ece0745d430e41f4a45e947817e9285d/w8tgbd.jpg",
+            "profileImage":"https://c8.alamy.com/zooms/9/ece0745d430e41f4a45e947817e9285d/w8tgbd.jpg"]))
         return cell
     }
+}
+
+extension ViewController: CellPostDelegate{
+
+    func btnPress(title: String) {
+        let alert = UIAlertController(title: "\(title)", message: "This is \(title).", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
-    
+     
 }
